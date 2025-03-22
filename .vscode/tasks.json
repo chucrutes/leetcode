@@ -1,0 +1,10 @@
+{
+    "tasks": [
+        {
+            "label": "Run tests",
+            "type": "shell",
+            "command": "cd ts && pnpm run test",
+            "problemMatcher": []
+        }
+    ]
+}
