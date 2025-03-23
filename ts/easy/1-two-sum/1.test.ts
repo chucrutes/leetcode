@@ -1,5 +1,5 @@
 import { describe, expect, it } from "@jest/globals";
-import { SuccessTwoSumResponse, twoSum, TwoSumResponse } from "./1";
+import { SuccessTwoSumResponse, twoSum } from ".";
 
 describe("two sum", () => {
   it("should find two number", () => {
