@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "exec": "node --no-warnings --experimental-strip-types",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "compile": "tsc --lib \"es6\""
   },
   "engines": {
     "node": "^22",
