@@ -11,9 +11,26 @@ describe("two sum", () => {
 
     expect(sum).toEqual(target);
   });
+  it("should work with negative numbers", () => {
+    const nums = [-5, -7, -2];
+    const target = -12;
+
+    const result = twoSum(nums, target) as SuccessTwoSumResponse;
+    const sum = nums[result[0]] + nums[result[1]];
+
+    expect(sum).toEqual(target);
+  });
   it("should return undefined", () => {
     const nums = [7, 2, 9, 18];
     const target = 18;
+
+    const result = twoSum(nums, target);
+
+    expect(result).toBeUndefined();
+  });
+  it("should handle empty array", () => {
+    const nums = [];
+    const target = 0;
 
     const result = twoSum(nums, target);
 

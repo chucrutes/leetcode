@@ -1,10 +1,6 @@
 export type SuccessTwoSumResponse = [number, number];
 export type TwoSumResponse = SuccessTwoSumResponse | undefined;
 
-function removeUnusedValuesFromArray(arr: number[], target: number) {
-  return arr.filter((item) => item <= target);
-}
-
 function findSum(nums: number[], target: number) {
   const numbersAlreadySeen = new Map<number, number>();
 
@@ -24,8 +20,7 @@ function findSum(nums: number[], target: number) {
 }
 
 export function twoSum(nums: number[], target: number): TwoSumResponse {
-  const arr = removeUnusedValuesFromArray(nums, target);
-  const result = findSum(arr, target);
+  const result = findSum(nums, target);
   if (!result) return undefined;
 
   return [result.index, result.isNumberAlreadySeen];
