@@ -1,43 +1,32 @@
+export type SuccessTwoSumResponse = [number, number];
+export type TwoSumResponse = SuccessTwoSumResponse | undefined;
+
 function removeUnusedValuesFromArray(arr: number[], target: number) {
   return arr.filter((item) => Math.abs(item) <= target);
 }
 
-function findSum(arr: number[], target: number) {
-  let indexes: [number, number] = [0, 1];
-  let sum = null;
-  const arrLength = arr.length;
+function findSum(nums: number[], target: number) {
+  const numbersAlreadySeen = new Map<number, number>();
 
-  while (sum !== target) {
-    const valueOne = arr[indexes[0]];
-    const valueTwo = arr[indexes[1]];
-    sum = valueOne + valueTwo;
+  for (let index = 0; index < nums.length; index++) {
+    const element = nums[index];
+    const difference = target - element;
 
-    if (indexes[0] + 1 > arrLength - 1) {
-      return;
+    const isNumberAlreadySeen = numbersAlreadySeen.get(difference);
+
+    if (isNumberAlreadySeen === undefined) {
+      numbersAlreadySeen.set(element, index);
+      continue;
     }
 
-    if (sum > target || (sum < target && indexes[1] + 1 > arrLength - 1)) {
-      indexes[0] = indexes[0] + 1;
-      indexes[1] = indexes[0] + 1;
-    }
-
-    if (sum === target) {
-      return indexes;
-    }
-
-    if (sum < target) {
-      indexes[1] = indexes[1] + 1;
-    }
+    return { isNumberAlreadySeen, index };
   }
 }
 
-export function twoSum(nums: number[], target: number) {
+export function twoSum(nums: number[], target: number): TwoSumResponse {
   const arr = removeUnusedValuesFromArray(nums, target);
   const result = findSum(arr, target);
-  console.log(result);
+  if (!result) return undefined;
 
-  return result;
+  return [result.index, result.isNumberAlreadySeen];
 }
-
-// twoSum([5, 2, 7], 12);
-twoSum([-5, 2, -7], -12);

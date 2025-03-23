@@ -1,13 +1,13 @@
-import { describe, expect, test, it } from "@jest/globals";
-import { twoSum } from "./1";
+import { describe, expect, it } from "@jest/globals";
+import { SuccessTwoSumResponse, twoSum, TwoSumResponse } from "./1";
 
 describe("two sum", () => {
   it("should find two number", () => {
     const nums = [7, 2, 9, 11];
     const target = 9;
 
-    const [firstIndex, secondIndex] = twoSum(nums, target) as [number, number];
-    const sum = nums[firstIndex] + nums[secondIndex];
+    const result = twoSum(nums, target) as SuccessTwoSumResponse;
+    const sum = nums[result[0]] + nums[result[1]];
 
     expect(sum).toEqual(target);
   });

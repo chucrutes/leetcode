@@ -8,7 +8,8 @@
     "test": "jest --watch"
   },
   "engines": {
-    "node": "pnpm"
+    "node": "^22",
+    "pnpm": "^10"
   },
   "engineStrict": true,
   "devDependencies": {
