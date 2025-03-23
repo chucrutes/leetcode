@@ -2,7 +2,7 @@ export type SuccessTwoSumResponse = [number, number];
 export type TwoSumResponse = SuccessTwoSumResponse | undefined;
 
 function removeUnusedValuesFromArray(arr: number[], target: number) {
-  return arr.filter((item) => Math.abs(item) <= target);
+  return arr.filter((item) => item <= target);
 }
 
 function findSum(nums: number[], target: number) {

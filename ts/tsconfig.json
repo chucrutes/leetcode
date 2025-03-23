@@ -6,6 +6,7 @@
         "forceConsistentCasingInFileNames": true,
         "rootDir": ".",
         "outDir": "dist",
-        "removeComments": true
+        "removeComments": true,
+        "esModuleInterop": false
     }
 }
