@@ -6,17 +6,20 @@
   "scripts": {
     "exec": "node --no-warnings --experimental-strip-types",
     "test": "jest --watch",
-    "compile": "tsc --lib \"es6\""
+    "compile": "tsc"
   },
-  "engines": {
-    "node": "^22",
-    "pnpm": "^10"
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "10.x"
+    }
   },
   "engineStrict": true,
   "devDependencies": {
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
     "@babel/preset-typescript": "^7.26.0",
+    "@biomejs/biome": "^1.9.4",
     "@jest/globals": "^29.7.0",
     "babel-jest": "^29.7.0",
     "ts-jest": "^29.2.6",
