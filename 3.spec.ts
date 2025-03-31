@@ -17,14 +17,15 @@ describe('Find biggest substring', () => {
 
     expect(res).toEqual(3)
   })
-  it('should return 1 str of length 1', () => {
-    const res = lengthOfLongestSubstring(' ')
-
-    expect(res).toEqual(1)
-  })
   it('should return 3', () => {
     const res = lengthOfLongestSubstring('dvdf')
 
     expect(res).toEqual(3)
+  })
+  it('no letters repeat should return the length of the string', () => {
+    const str = 'abc'
+    const res = lengthOfLongestSubstring(str)
+
+    expect(res).toEqual(str.length)
   })
 })

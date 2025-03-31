@@ -1,6 +1,7 @@
 type LetterExists = Map<string, number>
 
 const isLetterAlreadyUsed = (letter: string, lettersUsed: LetterExists) => {
+  if (!letter) return
   return lettersUsed.get(letter)
 }
 
@@ -17,28 +18,33 @@ export function lengthOfLongestSubstring(s: string): number {
   const substringLengths: number[] = []
   const strLength = s.length
 
-  let index = 0
-  let length = 0
+  if (strLength <= 1) {
+    return strLength
+  }
 
-  while (index <= strLength) {
+  let index = 0
+  let substringLength = 0
+  let start = 0
+
+  while (index < strLength) {
     const currentChar = s[index]
 
-    const indexUsed = isLetterAlreadyUsed(currentChar, lettersUsed)
-
-    if (indexUsed !== undefined) {
-      substringLengths.push(length)
-      index = indexUsed
-      length = 1
+    const letterAlreadyUsed = isLetterAlreadyUsed(currentChar, lettersUsed)
+    if (letterAlreadyUsed === undefined) {
+      substringLength++
+      index++
+      lettersUsed.set(currentChar, index)
+    } else {
+      substringLengths.push(substringLength)
       lettersUsed.clear()
+      substringLength = 0
+      start++
+      index = start
     }
-    lettersUsed.set(currentChar, index)
-
-    length++
-    index++
   }
-  substringLengths.push(length)
+  if (substringLength > 0) {
+    substringLengths.push(substringLength)
+  }
 
   return findBiggestNum(substringLengths)
 }
-
-console.log(lengthOfLongestSubstring('abb'))
