@@ -1,7 +1,7 @@
 const convertString = (palindrome: string) => {
   const palindromeLength = palindrome.length
   const strArr = new Array<string>(palindromeLength).fill('')
-  const isOddOrNot = !isEven(palindromeLength)
+  const isOddOrNot = isOdd(palindromeLength)
   const middleOfArr = Math.floor(palindromeLength / 2)
 
   let tempString = palindrome
@@ -23,7 +23,8 @@ const convertString = (palindrome: string) => {
   }, '')
 }
 
-const isEven = (number: number) => number % 2 === 0
+const isOdd = (num: number) => !isEven(num)
+const isEven = (num: number) => num % 2 === 0
 
 export const longestPalindrome = (s: string): string => {
   const pureStr = s.replace(' ', '').toLowerCase()
