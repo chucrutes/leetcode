@@ -7,6 +7,7 @@ describe('Find biggest substring', () => {
 
     expect(res).toEqual(3)
   })
+
   it('should return 1', () => {
     const res = lengthOfLongestSubstring('bbbb')
 
