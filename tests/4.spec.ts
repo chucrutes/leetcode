@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals'
-import { longestPalindrome } from './4'
+import { longestPalindrome } from '../4'
 describe('TestSuite', () => {
   it('should test even string', () => {
     const str = 'Lavaesseaval'

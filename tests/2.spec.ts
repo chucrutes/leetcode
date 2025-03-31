@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals'
-import { ListNode, addTwoNumbers } from './2'
+import { ListNode, addTwoNumbers } from '../2'
 
 describe('Add two numbers', () => {
   it('should return a linked list', () => {

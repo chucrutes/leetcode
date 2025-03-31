@@ -1,5 +1,5 @@
 import { describe, expect, it } from '@jest/globals'
-import { lengthOfLongestSubstring } from './3'
+import { lengthOfLongestSubstring } from '../3'
 
 describe('Find biggest substring', () => {
   it('should return 3', () => {
