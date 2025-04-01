@@ -14,7 +14,7 @@ function reverse(x: number): number {
   return res
 }
 
-const isPalindrome = (x: number): boolean => {
+export const isPalindrome = (x: number): boolean => {
   if (x < 0) {
     return false
   }
@@ -25,5 +25,3 @@ const isPalindrome = (x: number): boolean => {
 
   return false
 }
-
-console.log(isPalindrome(120))

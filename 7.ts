@@ -2,7 +2,7 @@ function is32BitInteger(num: number) {
   return Number.isInteger(num) && num >= -2147483648 && num <= 2147483647
 }
 
-function reverse(x: number): number {
+export function reverse(x: number): number {
   const isNegative = x < 0
   let newNum = Math.abs(x)
   let value = 0
