@@ -1,18 +1,6 @@
-// Input: (nums1 = [1, 2, 3, 0, 0, 0]), (m = 3), (nums2 = [2, 5, 6]), (n = 3)
+type MergeSort = number[]
 
-export function merge(
-  nums1: number[],
-  _m: number,
-  nums2: number[],
-  _n: number
-): number[] {
-  const concatArr = nums1.concat(nums2).filter(Boolean)
-  const sorted = sort(concatArr)
-
-  return sorted
-}
-
-function sort(nums: number[]): number[] {
+function mergeSort(nums: MergeSort): MergeSort {
   const { length } = nums
 
   if (length === 1) {
@@ -23,10 +11,10 @@ function sort(nums: number[]): number[] {
   const left = nums.slice(0, middleOfArray)
   const right = nums.slice(middleOfArray)
 
-  return mergeSort(sort(left), sort(right))
+  return merge(mergeSort(left), mergeSort(right))
 }
 
-function mergeSort(left: number[], right: number[]): number[] {
+function merge(left: MergeSort, right: MergeSort): MergeSort {
   const merged = []
 
   let indexLeft = 0
@@ -50,3 +38,5 @@ function mergeSort(left: number[], right: number[]): number[] {
 
   return merged.concat(left.slice(indexLeft)).concat(right.slice(indexRight))
 }
+
+console.log(mergeSort([1, 2, 3, 2, 5, 6]))
